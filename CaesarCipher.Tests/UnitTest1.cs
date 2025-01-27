@@ -11,10 +11,26 @@ public class UnitTest1
     [InlineData("A", 1, "B")]
     [InlineData("Z", 1, "A")]
     [InlineData("C", 24, "A")]
-    public void EncodeSingleLetter(string letter, int shift, string encoded)
+    public void EncodeSingleAsciiLetter(string letter, int shift, string expected)
     {
-        string encodedLetter = CaesarCipher.Encode(letter, shift);
+        string encoded = CaesarCipher.Encode(letter, shift);
         
-        Assert.Equal(encoded, encodedLetter);
+        Assert.Equal(expected, encoded);
+    }
+    
+    [Theory]
+    [InlineData("b", 1, "a")]
+    [InlineData("c", 1, "b")]
+    [InlineData("a", 1, "z")]
+    [InlineData("z", 25, "a")]
+    [InlineData("c", 25, "d")]
+    [InlineData("B", 1, "A")]
+    [InlineData("A", 1, "Z")]
+    [InlineData("A", 24, "C")]
+    public void DecodeSingleAsciiLetter(string letter, int shift, string expected)
+    {
+        string decoded = CaesarCipher.Decode(letter, shift);
+        
+        Assert.Equal(expected, decoded);
     }
 }
