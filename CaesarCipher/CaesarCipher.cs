@@ -1,6 +1,6 @@
-namespace CaesarCipher;
+namespace CaesarCypher;
 
-public class CaesarCipher
+public static class CaesarCipher
 {
     public static string Encode(string message, int shift)
     {

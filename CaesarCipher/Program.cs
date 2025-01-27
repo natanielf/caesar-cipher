@@ -1,4 +1,4 @@
-﻿namespace CaesarCipher;
+﻿namespace CaesarCypher;
 
 class Program
 {
