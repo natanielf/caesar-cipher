@@ -17,7 +17,7 @@ public class UnitTest1
         
         Assert.Equal(expected, encoded);
     }
-    
+
     [Theory]
     [InlineData("b", 1, "a")]
     [InlineData("c", 1, "b")]
@@ -31,6 +31,20 @@ public class UnitTest1
     {
         string decoded = CaesarCipher.Decode(letter, shift);
         
+        Assert.Equal(expected, decoded);
+    }
+
+    [Fact]
+    public void CrackString()
+    {
+        string input =
+            "Xli ibxirhih evq wepyxmrk kiwxyvi aew eppikih xs fi fewih sr er ergmirx Vsqer gywxsq, fyx rs orsar Vsqer asvo sj evx hitmgxw mx, rsv hsiw erc ibxerx Vsqer xibx hiwgvmfi mx. Lmwxsvmerw lezi mrwxieh hixivqmrih xlex xli kiwxyvi svmkmrexih jvsq Neguyiw-Psymw Hezmh'w 1784 temrxmrk Sexl sj xli Lsvexmm, almgl hmwtpecih e vemwih evq wepyxexsvc kiwxyvi mr er ergmirx Vsqer wixxmrk. Xli kiwxyvi erh mxw mhirxmjmgexmsr amxl ergmirx Vsqi aew ehzergih mr sxliv Jvirgl risgpewwmg evx.";
+
+        string expected =
+            "The extended arm saluting gesture was alleged to be based on an ancient Roman custom, but no known Roman work of art depicts it, nor does any extant Roman text describe it. Historians have instead determined that the gesture originated from Jacques-Louis David's 1784 painting Oath of the Horatii, which displayed a raised arm salutatory gesture in an ancient Roman setting. The gesture and its identification with ancient Rome was advanced in other French neoclassic art.";
+
+        string decoded = CaesarCipher.Crack(input);
+
         Assert.Equal(expected, decoded);
     }
 }
