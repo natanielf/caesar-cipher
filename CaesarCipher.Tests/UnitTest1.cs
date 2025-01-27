@@ -8,6 +8,9 @@ public class UnitTest1
     [InlineData("z", 1, "a")]
     [InlineData("a", 25, "z")]
     [InlineData("d", 25, "c")]
+    [InlineData("A", 1, "B")]
+    [InlineData("Z", 1, "A")]
+    [InlineData("C", 24, "A")]
     public void EncodeSingleLetter(string letter, int shift, string encoded)
     {
         string encodedLetter = CaesarCipher.Encode(letter, shift);
