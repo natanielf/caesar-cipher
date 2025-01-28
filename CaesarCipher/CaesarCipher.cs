@@ -16,7 +16,7 @@ public static class CaesarCipher
             encodedMessage = encodeCharacters(message, shift);
         }
         
-        return "";
+        return encodedMessage;
     }
 
     private static string encodeCharacters(string message, int shift)
@@ -24,7 +24,7 @@ public static class CaesarCipher
         string encodedMessage = "";
         foreach (char character in message)
         {
-            encodedMessage.Append(encodeCharacter(character, shift));
+            encodedMessage = encodedMessage + encodeCharacter(character, shift);
         }
         return encodedMessage;
     }
@@ -54,7 +54,7 @@ public static class CaesarCipher
             decodedMessage = decodeCharacters(message, shift);
         }
         
-        return "";
+        return decodedMessage;
     }
     
     private static string decodeCharacters(string message, int shift)
@@ -62,7 +62,7 @@ public static class CaesarCipher
         string decodedMessage = "";
         foreach (char character in message)
         {
-            decodedMessage.Append(encodeCharacter(character, shift));
+            decodedMessage = decodedMessage + decodeCharacter(character, shift);
         }
         return decodedMessage;
     }
